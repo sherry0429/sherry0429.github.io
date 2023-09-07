@@ -3,15 +3,17 @@ layout: page
 title: My Novels Show Case
 ---
 
-{% assign novels = site.tags | where_exp: "tag", "tag[0] | split: '-' | first == 'novel'" %}
-{% assign novels_grouped = novels | group_by: "tag[0] | split: '-' | last" %}
 
-{% for novel_group in novels_grouped %}
-  <h3>{{ novel_group.name }}</h3>
-  <ul>
-    {% assign chapters = novel_group.items | sort: "date" %}
-    {% for chapter in chapters %}
-      <li><a href="{{ chapter.url }}">{{ chapter.date | date: "%B %Y" }} - {{ chapter.tag[0] | split: '-' | last }}</a></li>
-    {% endfor %}
-  </ul>
+{% for tag in site.tags %}
+  {% if tag[0] | contains: 'novel-' %}
+    {% assign novel_info = tag[0] | split: '-' %}
+    {% assign novel_name = novel_info[1] %}
+    {% assign chapter_name = novel_info[2] %}
+    <h3>{{ novel_name }}</h3>
+    <ul>
+      {% for post in tag[1] | sort: "date" %}
+        <li><a href="{{ post.url }}">{{ post.date | date: "%B %Y" }} - {{ chapter_name }}</a></li>
+      {% endfor %}
+    </ul>
+  {% endif %}
 {% endfor %}
