@@ -4,11 +4,14 @@ title: My Novels
 ---
 <h1>Hello</h1>
 
-{% for tag in site.tags %}
-  {% if tag[0] | contains: 'novel-' %}
+{% assign novels = site.tags | where_exp: "tag", "tag[0] | contains: 'novel-'" %}
+
+{% if novels.size > 0 %}
+  {% for tag in novels %}
     {% assign novel_info = tag[0] | split: '-' %}
     {% assign novel_name = novel_info[1] %}
     {% assign chapter_name = novel_info[2] %}
+    
     {% if novel_name != '' %}
       <h3>{{ novel_name }}</h3>
       <ul>
@@ -17,5 +20,11 @@ title: My Novels
         {% endfor %}
       </ul>
     {% endif %}
-  {% endif %}
-{% endfor %}
+  {% endfor %}
+{% endif %}
+
+
+
+
+
+
