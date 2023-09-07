@@ -1,6 +1,6 @@
 ---
 layout: page
-title: My Novels
+title: My Novels Show Case
 ---
 
 {% assign novels = site.tags | where_exp: "tag", "tag[0] | split: '-' | first == 'novel'" %}
