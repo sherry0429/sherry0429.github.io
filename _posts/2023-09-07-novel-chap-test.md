@@ -1,7 +1,6 @@
 ---
 layout: post
 title:  "Welcome to Jekyll!"
-tag: novel-小说名A-章节1
 ---
 
 # Welcome
