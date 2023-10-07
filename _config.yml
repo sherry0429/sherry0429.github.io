@@ -40,3 +40,9 @@ defaults:
       type: post
     values:
       tags: Other
+
+collections:
+  blogposts:
+    output: true
+  posts:
+    output: true
