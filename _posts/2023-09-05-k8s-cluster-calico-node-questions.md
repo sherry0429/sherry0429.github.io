@@ -21,7 +21,7 @@ calico查找节点文件名的顺序如下
 
 ## 二、解决办法
 
-1. 在所有步骤之前，先编辑各个节点的/etc/hosts文件，给每个节点各自的hostname，比如test.server1/test.server2
+1. 在所有步骤之前，先编辑各个节点的/etc/hosts文件，给每个节点各自的hostname，比如test.server1/test.server2，特别注意！也要写到/etc/hostname里面！
 
 2. 使用ezctl add-node的时候，指定/etc/hosts中记录的名称
 ```shell
