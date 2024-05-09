@@ -23,6 +23,12 @@ calico查找节点文件名的顺序如下
 
 1. 在所有步骤之前，先编辑各个节点的/etc/hosts文件，给每个节点各自的hostname，比如test.server1/test.server2，特别注意！也要写到/etc/hostname里面！
 
+也可使用下面方式修改和验证 这样更保险
+```
+hostnamectl set-hostname {your-host-name}
+hostnamectl 
+```
+
 2. 使用ezctl add-node的时候，指定/etc/hosts中记录的名称
 ```shell
 ezctl add-node cluster01 1.1.1.1 k8s_nodename=clickhouse.zk    # k8s_ndoename非常重要！一定要给，并且不能和其他节点重复，最好就是节点的host英文字符串
