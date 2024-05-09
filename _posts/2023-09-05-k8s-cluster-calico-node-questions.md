@@ -35,3 +35,7 @@ ezctl add-node cluster01 1.1.1.1 k8s_nodename=clickhouse.zk    # k8s_ndoename非
 ```
 
 3. calico pod启动后可以检测/var/lib/calico/nodename文件，存在于etc/hosts文件中，则说明正常
+
+## 三、另一个小问题
+
+nginx-ingress-controller安装在多节点的时候，确保它运行在master01,（或者说，运行在你要通过浏览器访问的那个节点上），并且确保它可以识别到资源，否则集群里面的svc导航不会生效
